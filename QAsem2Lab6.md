@@ -85,22 +85,28 @@
 
   5. Чому не слід використовувати deprecated-методи класу Thread?
    Deprecated (в переводе с англ. осужденный) — означает, что функционал устарел (метод, функция) и его лучше не использовать.
-   int 	countStackFrames()
+   
+1. int 	countStackFrames()
 Deprecated. 
 The definition of this call depends on suspend(), which is deprecated. Further, the results of this call were never well-defined.
-void 	destroy()
+
+2. void 	destroy()
 Deprecated. 
 This method was originally designed to destroy this thread without any cleanup. Any monitors it held would have remained locked. However, the method was never implemented. If if were to be implemented, it would be deadlock-prone in much the manner of suspend(). If the target thread held a lock protecting a critical system resource when it was destroyed, no thread could ever access this resource again. If another thread ever attempted to lock this resource, deadlock would result. Such deadlocks typically manifest themselves as "frozen" processes. For more information, see Why are Thread.stop, Thread.suspend and Thread.resume Deprecated?.
-void 	resume()
+
+3. void 	resume()
 Deprecated. 
 This method exists solely for use with suspend(), which has been deprecated because it is deadlock-prone. For more information, see Why are Thread.stop, Thread.suspend and Thread.resume Deprecated?.
-void 	stop()
+
+4. void 	stop()
 Deprecated. 
 This method is inherently unsafe. Stopping a thread with Thread.stop causes it to unlock all of the monitors that it has locked (as a natural consequence of the unchecked ThreadDeath exception propagating up the stack). If any of the objects previously protected by these monitors were in an inconsistent state, the damaged objects become visible to other threads, potentially resulting in arbitrary behavior. Many uses of stop should be replaced by code that simply modifies some variable to indicate that the target thread should stop running. The target thread should check this variable regularly, and return from its run method in an orderly fashion if the variable indicates that it is to stop running. If the target thread waits for long periods (on a condition variable, for example), the interrupt method should be used to interrupt the wait. For more information, see Why are Thread.stop, Thread.suspend and Thread.resume Deprecated?.
-void 	stop(Throwable obj)
+
+5. void 	stop(Throwable obj)
 Deprecated. 
 This method was originally designed to force a thread to stop and throw a given Throwable as an exception. It was inherently unsafe (see stop() for details), and furthermore could be used to generate exceptions that the target thread was not prepared to handle. For more information, see Why are Thread.stop, Thread.suspend and Thread.resume Deprecated?.
-void 	suspend()
+
+6. void 	suspend()
 Deprecated. 
 This method has been deprecated, as it is inherently deadlock-prone. If the target thread holds a lock on the monitor protecting a critical system resource when it is suspended, no thread can access this resource until the target thread is resumed. If the thread that would resume the target thread attempts to lock this monitor prior to calling resume, deadlock results. Such deadlocks typically manifest themselves as "frozen" processes. For more information, see Why are Thread.stop, Thread.suspend and Thread.resume Deprecated?.
 
