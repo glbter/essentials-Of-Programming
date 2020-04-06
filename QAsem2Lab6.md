@@ -69,7 +69,7 @@
     - витісняюча
   3. Пояснити діаграму станів об’єкта класу Thread. Чим стан «Running» відрізняється від стану «Runnable»?
   ![diaghram](https://github.com/nicknema/essentials-Of-Programming/blob/master/dia1QAsem2lab6.png)
-  
+  ![diaghram2](https://javarush.ru/images/article/b4eed106-d52b-448d-92c9-285eb8e82163/original.jpeg)
   4. Коли і як слід використовувати методи run() та start() класу Thread?    
   - start() - запускает данный поток из текущего потока.
       Этот метод вызывает run() метод этого же потока.
@@ -84,6 +84,31 @@
 
 
   5. Чому не слід використовувати deprecated-методи класу Thread?
+   Deprecated (в переводе с англ. осужденный) — означает, что функционал устарел (метод, функция) и его лучше не использовать.
+   int 	countStackFrames()
+Deprecated. 
+The definition of this call depends on suspend(), which is deprecated. Further, the results of this call were never well-defined.
+void 	destroy()
+Deprecated. 
+This method was originally designed to destroy this thread without any cleanup. Any monitors it held would have remained locked. However, the method was never implemented. If if were to be implemented, it would be deadlock-prone in much the manner of suspend(). If the target thread held a lock protecting a critical system resource when it was destroyed, no thread could ever access this resource again. If another thread ever attempted to lock this resource, deadlock would result. Such deadlocks typically manifest themselves as "frozen" processes. For more information, see Why are Thread.stop, Thread.suspend and Thread.resume Deprecated?.
+void 	resume()
+Deprecated. 
+This method exists solely for use with suspend(), which has been deprecated because it is deadlock-prone. For more information, see Why are Thread.stop, Thread.suspend and Thread.resume Deprecated?.
+void 	stop()
+Deprecated. 
+This method is inherently unsafe. Stopping a thread with Thread.stop causes it to unlock all of the monitors that it has locked (as a natural consequence of the unchecked ThreadDeath exception propagating up the stack). If any of the objects previously protected by these monitors were in an inconsistent state, the damaged objects become visible to other threads, potentially resulting in arbitrary behavior. Many uses of stop should be replaced by code that simply modifies some variable to indicate that the target thread should stop running. The target thread should check this variable regularly, and return from its run method in an orderly fashion if the variable indicates that it is to stop running. If the target thread waits for long periods (on a condition variable, for example), the interrupt method should be used to interrupt the wait. For more information, see Why are Thread.stop, Thread.suspend and Thread.resume Deprecated?.
+void 	stop(Throwable obj)
+Deprecated. 
+This method was originally designed to force a thread to stop and throw a given Throwable as an exception. It was inherently unsafe (see stop() for details), and furthermore could be used to generate exceptions that the target thread was not prepared to handle. For more information, see Why are Thread.stop, Thread.suspend and Thread.resume Deprecated?.
+void 	suspend()
+Deprecated. 
+This method has been deprecated, as it is inherently deadlock-prone. If the target thread holds a lock on the monitor protecting a critical system resource when it is suspended, no thread can access this resource until the target thread is resumed. If the thread that would resume the target thread attempts to lock this monitor prior to calling resume, deadlock results. Such deadlocks typically manifest themselves as "frozen" processes. For more information, see Why are Thread.stop, Thread.suspend and Thread.resume Deprecated?.
+
+
+
+Разрабочики помечают устаревший метод deprecated. При этом, как правило, добавляется альтернативный новый метод, который рекомендуется к использованию вместо старого. Это нужно для обратной совместимости. Т.е. чтобы с выходом новых версий старый код продолжал работать, как и раньше. Затем, через определенное время или определённое количество версий от deprecated отказываются совсем.
+
+Если появилась новая улучшенная реализация каких то возможностей, то вводится новый функционал, а старый функционал помечается deprecated.
 
   6. Для чого потрібен метод join()?
   Join - позволяет одному потоку ждать окончание выполнения другого потока.
