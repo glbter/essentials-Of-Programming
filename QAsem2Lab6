@@ -68,10 +68,8 @@
     интерфейса (Windows версий до 3.x включительно, а также 16-битные приложения в Windows 9x). 
     - витісняюча
   3. Пояснити діаграму станів об’єкта класу Thread. Чим стан «Running» відрізняється від стану «Runnable»?
-  ![diaghram](https://javarush.ru/images/article/76e73bfe-c9be-4ab6-9c9a-19e28d7f996d/original.jpeg)
-  ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
-  ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-  https://javarush.ru/images/article/76e73bfe-c9be-4ab6-9c9a-19e28d7f996d/original.jpeg
+  ![diaghram](https://github.com/nicknema/essentials-Of-Programming/blob/master/dia1QAsem2lab6.png)
+  
   4. Коли і як слід використовувати методи run() та start() класу Thread?    
   - start() - запускает данный поток из текущего потока.
       Этот метод вызывает run() метод этого же потока.
