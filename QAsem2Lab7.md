@@ -41,20 +41,15 @@
 
   5. Які є переваги/недоліки явного блокування у порівнянні використанням синхронних секцій?
     ![screenshoot](https://github.com/nicknema/essentials-Of-Programming/blob/master/QAsem2Lab7Screenshoot.jpg)
-    Parameters |	Lock Framework |	Synchronized
-    ---------------------|-----------------------------------------|-----------------------
+Parameters | Lock Framework |  Synchronized
+--------------------- | ----------------------------------------- | -----------------------
 Across Methods |	Yes, Locks can be implemented across the methods, you can invoke lock() in method1 and invoke unlock() in method2. |	Not possible
-
 try to acquire lock |	yes, trylock(timeout) method is supported by Lock framework, which will get the lock on the resource if it is available, else it returns false and Thread wont get blocked. |	Not possible with synchronized
-
 Fair lock management |	Yes, Fair lock management is available in case of lock framework. It hands over the lock to long waiting thread. Even in fairness mode set to true, if trylock is coded, it is served first. |	Not possible with synchronized
-
 List of waiting threads | Yes, List of waiting threads can be seen using Lock framework |	Not possible with synchronized
-
 Release of lock in exceptions |	`Lock.lock(); myMethod();Lock.unlock();` unlock() cant be executed in this code if any exception being thrown from myMethod(). |
 Synchronized works clearly in this case. It releases the lock
-unlock() cant be executed in this code if any exception being thrown from myMethod().
-	Synchronized works clearly in this case. It releases the lock
+
 Lock implementations provide more extensive locking operations than can be obtained using synchronized methods and statements. They allow more flexible structuring, may have quite different properties, and may support multiple associated Condition objects.
 
 The use of synchronized methods or statements provides access to the implicit monitor lock associated with every object, but forces all lock acquisition and release to occur in a block-structured way: when multiple locks are acquired they must be released in the opposite order, and all locks must be released in the same lexical scope in which they were acquired.
