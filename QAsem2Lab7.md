@@ -15,6 +15,10 @@
               //some logic
           } 
       ```
+     - При цьому методи колекції опертаються у блок `synchronized{}` 
+     - Cлід використовувати, якщо в доступ до ресурсу (колекції) робиться із декільков потоків, а при цьому один чи декілька потоків змінюють дані колекції
+     - також можна використати `wait()` і`notify()`. Але не бажано.
+     - або можна використати `lock()` для певних випадків
   3. Що таке блокуючий і неблокуючий ввід-вивід? 
       -  Blocking - Linear programming, easier to code, less control.
       -  Non-blocking - Parallel programming, more difficult to code, more control.
@@ -63,6 +67,6 @@ When locking and unlocking occur in different scopes, care must be taken to ensu
 
 Lock implementations provide additional functionality over the use of synchronized methods and statements by providing a non-blocking attempt to acquire a lock (tryLock()), an attempt to acquire the lock that can be interrupted (lockInterruptibly(), and an attempt to acquire the lock that can timeout (tryLock(long, TimeUnit)).
 
-  6. Що означають терміни thread-safe та fail-fast для колекцій?
+6. Що означають терміни thread-safe та fail-fast для колекцій?  
     - Thread-safe коллекция - та, которую безопасно использовать в многопоточности.
 Fail-fast итератор генерирует исключение ConcurrentModificationException, если коллекция меняется во время итерации
