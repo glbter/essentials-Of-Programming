@@ -28,10 +28,22 @@
 ```
 ### 5. Наведіть фрагмент коду для створення:
   - **об’єкту вкладеного статичного класу з середини зовнішнього класу;**
-  
+  ```java
+   Comparator myComparator = new myComparator();
+  ```
   - **об’єкту вкладеного статичного класу ззовні зовнішнього класу;**
+```java
+ OuterClass.ComparatorClass myComparator = new OuterClass.ComparatorClass();
+  ```
   - **об’єкту внутрішнього нестатичного класу з середини зовнішнього класу;**
+  ```java
+  InnerClass innerObject = new InnerClass();
+  ```
   - **об’єкту внутрішнього нестатичного класу ззовні зовнішнього класу.**
+  ```java
+  OuterClass outerObject = new OuterClass(); 
+        OuterClass.InnerClass innerObject = outerObject.new InnerClass(); 
+  ```
 ### 6. В чому полягає різниця між локальними та анонімними класами?
   - A normal class can implement any number of interfaces but anonymous inner class can implement only one interface at a time.
   - A regular class can extend a class and implement any number of interface simultaneously. But anonymous Inner class can extend a class or can implement an interface but not both at a time.
