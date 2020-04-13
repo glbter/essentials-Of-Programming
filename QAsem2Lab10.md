@@ -41,7 +41,7 @@ Then the list is a consumer, so you should use a `Collection<? super Thing>`.
 
 The reasoning here is that unlike `Collection<? extends Thing>`, `Collection<? super Thing>` can always hold a Thing no matter what the actual parameterized type is. Here you don't care what is already in the list as long as it will allow a `Thing` to be added; this is what `? super Thing` guarantees.
 
-Liskov substitution principle: if S is a subtype of `T`, then objects of type `T` may be replaced with objects of type `S`.
+**Liskov substitution principle** : if `S` is a subtype of `T`, then objects of type `T` may be replaced with objects of type `S`.
 
 Within the type system of a programming language, a typing rule
    - covariant if it preserves the ordering of types (≤), which orders types from more specific to more generic;
@@ -53,7 +53,7 @@ Covariance and contravariance
    - write-only data types (sinks) can be contravariant.
    - Mutable data types which act as both sources and sinks should be invariant.
 
-To illustrate this general phenomenon, consider the array type. For the type `Animal1 we can make the type `Animal[]`
+To illustrate this general phenomenon, consider the array type. For the type `Animal` we can make the type `Animal[]`
    - covariant: a `Cat[]` is an `Animal[]`;
    - contravariant: an `Animal[]` is a `Cat[]`;
    - invariant: an `Animal[]` is not a `Cat[]` and a `Cat[]` is not an `Animal[]`.
