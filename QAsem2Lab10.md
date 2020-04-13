@@ -25,23 +25,23 @@
   ```
 ### 7. Поясніть різницю між <? super T> та <? extends T>. В яких випадках слід застосовувати <? super T>, <? extends T>, а в яких просто <T> без super або extends?
   The principles behind this in computer science is called :
-    - Covariance: ? extends MyClass,
-    - Contravariance: ? super MyClass and
-    - Invariance/non-variance: MyClass
+  - Covariance: ? extends MyClass,
+  - Contravariance: ? super MyClass and
+  - Invariance/non-variance: MyClass
 
   ![contravariance and covariance](https://i.stack.imgur.com/KjDLw.png)
   
-# Case 1: You want to go through the collection and do things with each item.
+**Case 1: You want to go through the collection and do things with each item.**
 Then the list is a producer, so you should use a Collection`<? extends Thing>`.
 
 The reasoning is that a `Collection<? extends Thing>` could hold any subtype of `Thing`, and thus each element will behave as a `Thing` when you perform your operation. (You actually cannot add anything to a `Collection<? extends Thing>`, because you cannot know at runtime which specific subtype of `Thing` the collection holds.)
 
-# Case 2: You want to add things to the collection.
+**Case 2: You want to add things to the collection**.
 Then the list is a consumer, so you should use a `Collection<? super Thing>`.
 
 The reasoning here is that unlike `Collection<? extends Thing>`, `Collection<? super Thing>` can always hold a Thing no matter what the actual parameterized type is. Here you don't care what is already in the list as long as it will allow a `Thing` to be added; this is what `? super Thing` guarantees.
 
-Liskov substitution principle: if S is a subtype of T, then objects of type T may be replaced with objects of type S.
+Liskov substitution principle: if S is a subtype of `T`, then objects of type `T` may be replaced with objects of type `S`.
 
 Within the type system of a programming language, a typing rule
    - covariant if it preserves the ordering of types (≤), which orders types from more specific to more generic;
@@ -53,8 +53,9 @@ Covariance and contravariance
    - write-only data types (sinks) can be contravariant.
    - Mutable data types which act as both sources and sinks should be invariant.
 
-To illustrate this general phenomenon, consider the array type. For the type Animal we can make the type Animal[]
-   - covariant: a Cat[] is an Animal[];
-   - contravariant: an Animal[] is a Cat[];
-   - invariant: an Animal[] is not a Cat[] and a Cat[] is not an Animal[].
+To illustrate this general phenomenon, consider the array type. For the type `Animal1 we can make the type `Animal[]`
+   - covariant: a `Cat[]` is an `Animal[]`;
+   - contravariant: an `Animal[]` is a `Cat[]`;
+   - invariant: an `Animal[]` is not a `Cat[]` and a `Cat[]` is not an `Animal[]`.
+   
 [you can find more on the source](https://stackoverflow.com/questions/2723397/what-is-pecs-producer-extends-consumer-super)
