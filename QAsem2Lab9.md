@@ -52,7 +52,34 @@
         }
 }
 ```
+```java
+interface inter {
+    void method();
+    default void defMethod(){
+        //do something
+    }
+    static void statMethod(){
+        //do something
+    }
+}
 
+class E implements inter {
+    public void method(){
+        //do something
+    }
+}
+class G {
+    public static void main(String [] argv){
+        inter.statMethod();
+        E e = new E();
+        e.method();
+        e.defMethod();
+        inter as = () -> System.out.println("hello");
+        	
+    }
+
+}
+```
 
 ### 4. Чому з лямбда-виразів неможна звертатись до локальних змінних, що змінюють свої значення?
   - ![why you cant do it](https://github.com/nicknema/essentials-Of-Programming/blob/master/QAsem2Lab8.md#8-%D1%87%D0%BE%D0%BC%D1%83-%D0%B7-%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D1%85-%D1%82%D0%B0-%D0%B0%D0%BD%D0%BE%D0%BD%D1%96%D0%BC%D0%BD%D0%B8%D1%85-%D0%BA%D0%BB%D0%B0%D1%81%D1%96%D0%B2-%D0%BD%D0%B5%D0%BC%D0%BE%D0%B6%D0%BD%D0%B0-%D0%B7%D0%B2%D0%B5%D1%80%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%8C-%D0%B4%D0%BE-%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D1%85-%D0%B7%D0%BC%D1%96%D0%BD%D0%BD%D0%B8%D1%85-%D1%89%D0%BE-%D0%B7%D0%BC%D1%96%D0%BD%D1%8E%D1%8E%D1%82%D1%8C-%D1%81%D0%B2%D0%BE%D1%97-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%BD%D1%8F)
