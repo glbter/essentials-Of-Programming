@@ -15,6 +15,22 @@
    OuterClass outerObject = new OuterClass(); 
         OuterClass.InnerClass innerObject = outerObject.new InnerClass(); 
   ```
+  - in conlusion : 
+  ```java
+  class A {
+    B b = new B(); //static inside 
+    C c = new C();// non-static inside
+    static class B {}
+    class C {}
+} 
+class D{
+    public static void main(String [] argv){
+    A.B b = new A.B(); //static outside
+    A a = new A();		//non static outside
+    A.C c = a.new C();
+    }
+}
+  ```
 ### 3. В яких випадках краще використовувати статичні вкладені (static nested), в яких внутрішні (non-static inner), а в яких звичайні класи?
   - You use static nested classes if you just want to keep your classes together if they belong topically together or if the nested class is exclusively used in the enclosing class. There is no semantic difference between a static nested class and every other class.
   - You would define a static inner class when you know that it does not have any relationship with the instance of the enclosing class/top class. If your inner class doesn't use methods or fields of the outer class, it's just a waste of space, so make it static.
