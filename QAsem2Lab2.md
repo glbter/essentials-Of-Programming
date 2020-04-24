@@ -13,7 +13,7 @@
       int result = a+b;
     }
   }
-    ```
+ ```
 - getParameter() returns http request parameters. Those passed from the client to the server. For example http://example.com/servlet?parameter=1. Can only return String
 - getAttribute() is for server-side usage only - you fill the request with attributes that you can use within the same request. For example - you set an attribute in a servlet, and read it from a JSP. Can be used for any object, not just string.
-[stack overflow](https://stackoverflow.com/questions/5243754/difference-between-getattribute-and-getparameter)
+- [stack overflow](https://stackoverflow.com/questions/5243754/difference-between-getattribute-and-getparameter)
