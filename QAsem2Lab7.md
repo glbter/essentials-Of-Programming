@@ -1,10 +1,10 @@
 # Синхронізація потоків виконання
-  **1. Чим потік вводу-виводу відрізняється від потоку виконання?**
+  ### 1. Чим потік вводу-виводу відрізняється від потоку виконання?
      - поток вводу-виводу створений для обміну данними, їх отримання та відправлення
      - поток виконання це певна робота (задача) яку треба виконати, за можливості паралельно із іншою задачею
      - Перший дійсно є потоком (Stream), а другий - насправді Thread (нитка), але колись дуже давно його переклали як потік.Потік (англ. thread) або повніше потік виконання (англ. thread of execution), часто застосовуються назви нитка, нитка виконання та англіцизм тред — в інформатиці так називається спосіб програми розділити себе на дві чи більше паралельні задачі.
      
-  **2. В яких випадках та яким чином слід синхронізовувати потоки виконання при доступі до спільних ресурсів?**
+  ### 2. В яких випадках та яким чином слід синхронізовувати потоки виконання при доступі до спільних ресурсів?
     
     ```java
     Collections.synchronizedSet(mySet);
@@ -19,30 +19,30 @@
    - Cлід використовувати, якщо в доступ до ресурсу (колекції) робиться із декільков потоків, а при цьому один чи декілька потоків змінюють дані колекції
    - також можна використати `wait()` і`notify()`. Але не бажано.
    - або можна використати `lock()` для певних випадків
-  **3. Що таке блокуючий і неблокуючий ввід-вивід?** 
-      -  Blocking - Linear programming, easier to code, less control.
-      -  Non-blocking - Parallel programming, more difficult to code, more control.
-      - Well blocking IO means that a given thread cannot do anything more until the IO is fully received (in the case of sockets this wait could be a long time).
-      - Non-blocking IO means an IO request is queued straight away and the function returns. The actual IO is then processed at some later point by the kernel.
-      - For blocking IO you either need to accept that you are going to wait for every IO request or you are going to need to fire off a thread per request (Which will get very complicated very quickly).
-      - For non-blocking IO you can send off multiple requests but you need to bear in mind that the data will not be available until some "later" point. This checking that the data has actually arrived is probably the most complicated part.
-      - Блокирующий ввод-вывод так называется, потому что поток, который его использует блокируется и переходит в режим ожидания, пока ввод-вывод не будет завершен.
+  ### 3. Що таке блокуючий і неблокуючий ввід-вивід?
+  -  Blocking - Linear programming, easier to code, less control.
+  -  Non-blocking - Parallel programming, more difficult to code, more control.
+  - Well blocking IO means that a given thread cannot do anything more until the IO is fully received (in the case of sockets this wait could be a long time).
+  - Non-blocking IO means an IO request is queued straight away and the function returns. The actual IO is then processed at some later point by the kernel.
+  - For blocking IO you either need to accept that you are going to wait for every IO request or you are going to need to fire off a thread per request (Which will get very complicated very quickly).
+  - For non-blocking IO you can send off multiple requests but you need to bear in mind that the data will not be available until some "later" point. This checking that the data has actually arrived is probably the most complicated part.
+  - Блокирующий ввод-вывод так называется, потому что поток, который его использует блокируется и переходит в режим ожидания, пока ввод-вывод не будет завершен.
 Идея неблокирующего ввода-вывода заключается в том, что когда программа делает вызов на чтение файла, ОС вернет ей либо готовые данные либо инфу о том, что ввод-вывод еще не закончен.
   
- **4. Що таке критична секція, м’ютекс, монітор?**
-      - Monitor - высокоуровневый механизм взаимодействия и синхронизации процессов, обеспечивающий доступ к неразделяемым ресурсам.
-        При многозадачности, основанной на мониторах, компилятор или интерпретатор прозрачно для программиста вставляет код блокировки-разблокировки в оформленные соответствующим образом процедуры, избавляя программиста от явного обращения к примитивам синхронизации.
-      - Mutex - двоичный простейший семафор, который может находиться в одном из двух состояний: отмеченном или неотмеченном. Он отличается от семафора тем, что только владеющий им поток может его освободить, т.е. перевести в отмеченное состояние.
-        Задача мьютекса — защита объекта от доступа к нему других потоков, отличных от того, который завладел мьютексом.
-        В каждый конкретный момент только один поток может владеть объектом, защищённым мьютексом.
-        Если другому потоку будет нужен доступ к переменной, защищённой мьютексом, то этот поток блокируется до тех пор, пока мьютекс не будет освобождён.
-      - Critical section - участок кода, в котором производится доступ к общему ресурсу, который не должен быть одновременно использован более чем одним потоком.
-        Мьютекс является процедурой входа/выхода из критической секции.
-      - Мьютекс обеспечивает механизм, при котором доступ к объекту в определенное время был только у одного потока.
-Монитор – это специальный механизм (кусок кода) – надстройка над мютексом, который обеспечивает правильную работу с ним.В Java монитор реализован с помощью ключевого слова synchronized.
-Критическая секция — участок исполняемого кода программы, в котором производится доступ к общему ресурсу (данным или устройству), который не должен быть одновременно использован более чем одним потоком выполнения.
+  ### 4. Що таке критична секція, м’ютекс, монітор?
+  - Monitor - высокоуровневый механизм взаимодействия и синхронизации процессов, обеспечивающий доступ к неразделяемым ресурсам.
+  - При многозадачности, основанной на мониторах, компилятор или интерпретатор прозрачно для программиста вставляет код блокировки-разблокировки в оформленные соответствующим образом процедуры, избавляя программиста от явного обращения к примитивам синхронизации.
+  - Mutex - двоичный простейший семафор, который может находиться в одном из двух состояний: отмеченном или неотмеченном. Он отличается от семафора тем, что только владеющий им поток может его освободить, т.е. перевести в отмеченное состояние.
+  - Задача мьютекса — защита объекта от доступа к нему других потоков, отличных от того, который завладел мьютексом.
+  - В каждый конкретный момент только один поток может владеть объектом, защищённым мьютексом.
+  - Если другому потоку будет нужен доступ к переменной, защищённой мьютексом, то этот поток блокируется до тех пор, пока мьютекс не будет освобождён.
+  - Critical section - участок кода, в котором производится доступ к общему ресурсу, который не должен быть одновременно использован более чем одним потоком.
+  - Мьютекс является процедурой входа/выхода из критической секции.
+  - Мьютекс обеспечивает механизм, при котором доступ к объекту в определенное время был только у одного потока.
+ - Монитор – это специальный механизм (кусок кода) – надстройка над мютексом, который обеспечивает правильную работу с ним.В Java монитор реализован с помощью ключевого слова synchronized.
+- Критическая секция — участок исполняемого кода программы, в котором производится доступ к общему ресурсу (данным или устройству), который не должен быть одновременно использован более чем одним потоком выполнения.
 
-  **5. Які є переваги/недоліки явного блокування у порівнянні використанням синхронних секцій?**
+  ### 5. Які є переваги/недоліки явного блокування у порівнянні використанням синхронних секцій?
     ![screenshoot](https://github.com/nicknema/essentials-Of-Programming/blob/master/QAsem2Lab7Screenshoot.jpg)
 
 | Parameters | Lock Framework |  Synchronized |
@@ -61,6 +61,6 @@
   - When locking and unlocking occur in different scopes, care must be taken to ensure that all code that is executed while the lock is held is protected by try-finally or try-catch to ensure that the lock is released when necessary.
   - Lock implementations provide additional functionality over the use of synchronized methods and statements by providing a non-blocking attempt to acquire a lock (tryLock()), an attempt to acquire the lock that can be interrupted (lockInterruptibly(), and an attempt to acquire the lock that can timeout (tryLock(long, TimeUnit)).
 
-**6. Що означають терміни thread-safe та fail-fast для колекцій?** 
+### 6. Що означають терміни thread-safe та fail-fast для колекцій?
     - Thread-safe коллекция - та, которую безопасно использовать в многопоточности.
 Fail-fast итератор генерирует исключение ConcurrentModificationException, если коллекция меняется во время итерации
