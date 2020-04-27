@@ -6,3 +6,4 @@
 - [Lab9 Лямбда-вирази та компаратори](https://github.com/nicknema/essentials-Of-Programming/blob/master/QAsem2Lab9.md)
 - [Lab 10 Функціональні інтерфейси та лямбда-вирази](https://github.com/nicknema/essentials-Of-Programming/blob/master/QAsem2Lab10.md)
 - [Lab11 Посилання на методи (Method references)](https://github.com/nicknema/essentials-Of-Programming/blob/master/QAsem2Lab11.md)
+- [Lab12 Stream API](https://github.com/nicknema/essentials-Of-Programming/blob/master/QAsem2Lab12.md)
