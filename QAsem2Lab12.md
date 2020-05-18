@@ -26,28 +26,28 @@ Intermediate operations are further divided into stateless and stateful operatio
 ### 5. Що означають слова `super` та `extends` у декларації методу `map` класу `Stream`?   `<R> Stream<R> map(Function<? super T,? extends R> mapper)` Чому вони стоять саме так, а не навпаки?
 - `super` => суперклас, предок
 - `extends`=> розширює, нащадок
-- (more about it)[https://github.com/nicknema/essentials-Of-Programming/blob/master/QAsem2Lab10.md#7-%D0%BF%D0%BE%D1%8F%D1%81%D0%BD%D1%96%D1%82%D1%8C-%D1%80%D1%96%D0%B7%D0%BD%D0%B8%D1%86%D1%8E-%D0%BC%D1%96%D0%B6-supert-%D1%82%D0%B0-extendst-%D0%B2-%D1%8F%D0%BA%D0%B8%D1%85-%D0%B2%D0%B8%D0%BF%D0%B0%D0%B4%D0%BA%D0%B0%D1%85-%D1%81%D0%BB%D1%96%D0%B4-%D0%B7%D0%B0%D1%81%D1%82%D0%BE%D1%81%D0%BE%D0%B2%D1%83%D0%B2%D0%B0%D1%82%D0%B8-supert-extendst-%D0%B0-%D0%B2-%D1%8F%D0%BA%D0%B8%D1%85-%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE--%D0%B1%D0%B5%D0%B7-super-%D0%B0%D0%B1%D0%BE-extends]
+- ![Covariance, contravariance, invariance](https://github.com/nicknema/essentials-Of-Programming/blob/master/QAsem2Lab10.md#7-%D0%BF%D0%BE%D1%8F%D1%81%D0%BD%D1%96%D1%82%D1%8C-%D1%80%D1%96%D0%B7%D0%BD%D0%B8%D1%86%D1%8E-%D0%BC%D1%96%D0%B6-supert-%D1%82%D0%B0-extendst-%D0%B2-%D1%8F%D0%BA%D0%B8%D1%85-%D0%B2%D0%B8%D0%BF%D0%B0%D0%B4%D0%BA%D0%B0%D1%85-%D1%81%D0%BB%D1%96%D0%B4-%D0%B7%D0%B0%D1%81%D1%82%D0%BE%D1%81%D0%BE%D0%B2%D1%83%D0%B2%D0%B0%D1%82%D0%B8-supert-extendst-%D0%B0-%D0%B2-%D1%8F%D0%BA%D0%B8%D1%85-%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE--%D0%B1%D0%B5%D0%B7-super-%D0%B0%D0%B1%D0%BE-extends)
 ### 6. В чому полягає різниця між операціями `map()` та `flatMap()` ? 
-- 'flatmap()'
+- `flatmap()`
    - Returns a stream consisting of the results of replacing each element of this stream with the contents of a mapped stream produced by applying the provided mapping function to each element. Each mapped stream is closed after its contents have been placed into this stream. (If a mapped stream is null an empty stream is used, instead.
    - The 'flatMap()' operation has the effect of applying a one-to-many transformation to the elements of the stream, and then flattening the resulting elements into a new stream. 
-- 'map()'
+- `map()`
    - returns a stream consisting of the results of applying the given function to the elements of this stream.
    - R - The element type of the new stream
 ### 7. В чому полягає різниця між операціями `peek()` та `forEach()` ? 
-- 'peek()'
+- `peek()`
    - Returns a stream consisting of the elements of this stream, additionally performing the provided action on each element as elements are consumed from the resulting stream. 
    - This is an intermediate operation. 
    - For parallel stream pipelines, the action may be called at whatever time and in whatever thread the element is made available by the upstream operation. If the action modifies shared state, it is responsible for providing the required synchronization.
    - This method exists mainly to support debugging, where you want to see the elements as they flow past a certain point in a pipeline
-- 'forEach()'
+- `forEach()`
    - Performs an action for each element of this stream.
    - This is a terminal operation.
    - The behavior of this operation is explicitly nondeterministic. For parallel stream pipelines, this operation does not guarantee to respect the encounter order of the stream, as doing so would sacrifice the benefit of parallelism. For any given element, the action may be performed at whatever time and in whatever thread the library chooses. If the action accesses shared state, it is responsible for providing the required synchronization.
 ### 8. В чому полягає різниця між операціями `findAny()` та `findFirst()` ? 
-- 'findAny()'
-   - The behavior of this operation is explicitly nondeterministic; it is free to select any element in the stream. This is to allow for maximal performance in parallel operations; the cost is that multiple invocations on the same source may not return the same result. (If a stable result is desired, use findFirst() instead.)
-- 'findFirst()' returns an Optional describing the first element of this stream, or an empty Optional if the stream is empty
+- `findAny()`
+   - The behavior of this operation is explicitly nondeterministic; it is free to select any element in the stream. This is to allow for maximal performance in parallel operations; the cost is that multiple invocations on the same source may not return the same result. (If a stable result is desired, use `findFirst()` instead.)
+- `findFirst()` returns an Optional describing the first element of this stream, or an empty Optional if the stream is empty
 ### 9. Як і на що впливають проміжні операції `sequential()`, `parallel()` та `unordered()`?
 -  As nouns the difference between sequence and order is that sequence is a set of things next to each other in a set order; a series while order is (uncountable) arrangement, disposition, sequence.
 - As verbs the difference between sequence and order is that sequence is to arrange in an order while order is to set in some sort of order. 
@@ -69,13 +69,12 @@ extends Object
 - This is a value-based class; use of identity-sensitive operations (including reference equality (==), identity hash code, or synchronization) on instances of Optional may have unpredictable results and should be avoided.
 - у випадку, якщо потік пустий `min()` та `max()` елемент не буде присутнім у потоці (він просто не може існувати). але `count()` буде визначеним, оскільки кількість рівна нулю.
 ### 12. Що таке *reduction*? В чому полягає різниця між *mutable reduction* та *immutable reduction*?
-- A **reduction operation** (also called a fold) takes a sequence of input elements and combines them into a single summary result by repeated application of a combining operation, such as finding the sum or maximum of a set of numbers, or accumulating elements into a list. The streams classes have multiple forms of general reduction operations, called reduce() and collect(), as well as multiple specialized reduction forms such as sum(), max(), or count().
+- A **reduction operation** (also called a fold) takes a sequence of input elements and combines them into a single summary result by repeated application of a combining operation, such as finding the sum or maximum of a set of numbers, or accumulating elements into a list. The streams classes have multiple forms of general reduction operations, called `reduce()` and `collect()`, as well as multiple specialized reduction forms such as `sum()`, `max()`, or `count()`.
 - A **mutable reduction operation** accumulates input elements into a mutable result container, such as a Collection or StringBuilder, as it processes the elements in the stream. 
 If we wanted to take a stream of strings and concatenate them into a single long string, we could achieve this with ordinary reduction:
-   ```(java)
+   ```java
       String concatenated = strings.reduce("", String::concat)
    ```
-
    We would get the desired result, and it would even work in parallel. However, we might not be happy about the performance! Such an implementation would do a great deal of string copying, and the run time would be O(n^2) in the number of characters. A more performant approach would be to accumulate the results into a StringBuilder, which is a mutable container for accumulating strings. We can use the same technique to parallelize mutable reduction as we do with ordinary reduction.
 
    The mutable reduction operation is called collect(), as it collects together the desired results into a result container such as a Collection. A collect operation requires three functions: a supplier function to construct new instances of the result container, an accumulator function to incorporate an input element into a result container, and a combining function to merge the contents of one result container into another. The form of this is very similar to the general form of ordinary reduction:
