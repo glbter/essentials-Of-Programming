@@ -24,9 +24,14 @@
   ### 15.  JSTL: призначення, переваги/недоліки, основні конструкції.
   ###  16.  Патерн MVC.
   ###  17.  Вкладені класи. Призначення вкладених класів. Різновиди вкладених класів (статичні, внутрішні, локальні, анонімні). Захват локальних змінних. Final та effectively final змінні.
+  - [усе про вкладені класи](https://github.com/nicknema/essentials-Of-Programming/blob/master/QAsem2Lab8.md#%D0%B2%D0%BA%D0%BB%D0%B0%D0%B4%D0%B5%D0%BD%D1%96-%D1%82%D0%B0-%D0%B2%D0%BD%D1%83%D1%82%D1%80%D1%96%D1%88%D0%BD%D1%96-%D0%BA%D0%BB%D0%B0%D1%81%D0%B8)
   ###  18.  Інтерфейси у Java 8. Статичні методи, методи за замовченням. Проблема ромба.
+  - [static and default methods](https://github.com/nicknema/essentials-Of-Programming/blob/master/QAsem2Lab9.md#3-%D1%89%D0%BE-%D1%82%D0%B0%D0%BA%D0%B5-%D1%81%D1%82%D0%B0%D1%82%D0%B8%D1%87%D0%BD%D1%96-%D1%82%D0%B0-%D0%B4%D0%B5%D1%84%D0%BE%D0%BB%D1%82%D0%BD%D1%96-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B8-%D1%87%D0%B8%D0%BC-%D0%B2%D0%BE%D0%BD%D0%B8-%D0%B2%D1%96%D0%B4%D1%80%D1%96%D0%B7%D0%BD%D1%8F%D1%8E%D1%82%D1%8C%D1%81%D1%8F-%D0%B2%D1%96%D0%B4-%D0%B7%D0%B2%D0%B8%D1%87%D0%B0%D0%B9%D0%BD%D0%B8%D1%85-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%96%D0%B2-%D0%B2-%D1%96%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0%D1%85)
   ###  19.  Лямбда-вирази. Синтаксис. Переваги та недоліки у порівнянні з анонімними класами.
+ - [lambdas or anonimous](https://github.com/nicknema/essentials-Of-Programming/blob/master/QAsem2Lab9.md#1-%D0%B2-%D1%87%D0%BE%D0%BC%D1%83-%D0%BF%D0%BE%D0%BB%D1%8F%D0%B3%D0%B0%D1%8E%D1%82%D1%8C-%D0%B2%D1%96%D0%B4%D0%BC%D1%96%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D1%96-%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%D0%B3%D0%B8-%D1%82%D0%B0-%D0%BD%D0%B5%D0%B4%D0%BE%D0%BB%D1%96%D0%BA%D0%B8-%D0%BB%D1%8F%D0%BC%D0%B1%D0%B4%D0%B0-%D0%B2%D0%B8%D1%80%D0%B0%D0%B7%D1%96%D0%B2-%D1%83-%D0%BF%D0%BE%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%96-%D0%B7-%D0%B0%D0%BD%D0%BE%D0%BD%D1%96%D0%BC%D0%BD%D0%B8%D0%BC%D0%B8-%D0%BA%D0%BB%D0%B0%D1%81%D0%B0%D0%BC%D0%B8)
   ###  20.  Функціональний інтерфейс. Стандартні функціональні інтерфейси з пакету java.util.function.
+ - [functional interface](https://github.com/nicknema/essentials-Of-Programming/blob/master/QAsem2Lab9.md#2-%D1%89%D0%BE-%D1%82%D0%B0%D0%BA%D0%B5-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9-%D1%96%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81)
+ - [consumer](https://github.com/nicknema/essentials-Of-Programming/blob/master/QAsem2Lab10.md#6-%D0%B2-%D1%8F%D0%BA%D0%B8%D1%85-%D0%B2%D0%B8%D0%BF%D0%B0%D0%B4%D0%BA%D0%B0%D1%85-%D0%B2%D0%B8%D0%BA%D0%BE%D1%80%D0%B8%D1%81%D1%82%D0%BE%D0%B2%D1%83%D1%94%D1%82%D1%8C%D1%81%D1%8F-%D1%96%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81-consumer)
   ###  21.  Інтерфейс Function<T,R>. Його основні методи: 
   -   **R apply(T t),**
   -   **default <V> Function<T,V> andThen(Function<? super R,? extends V> after),**
@@ -34,6 +39,7 @@
   -   **static <T> Function<T,T> identity().**
 
   ###  22.  Посилання на методи. Різновиди.
+ - [method refference](https://github.com/nicknema/essentials-Of-Programming/blob/master/QAsem2Lab11.md#%D0%BF%D0%BE%D1%81%D0%B8%D0%BB%D0%B0%D0%BD%D0%BD%D1%8F-%D0%BD%D0%B0-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B8-method-references)
   ### 23.  Stream API. Призначення стрімів, властивості, відмінності від колекцій. 
 - ![streams and collections](https://github.com/nicknema/essentials-Of-Programming/blob/master/QAsem2Lab12.md#1-%D0%B2-%D1%87%D0%BE%D0%BC%D1%83-%D0%BF%D0%BE%D0%BB%D1%8F%D0%B3%D0%B0%D1%8E%D1%82%D1%8C-%D0%B2%D1%96%D0%B4%D0%BC%D1%96%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D1%96-%D0%BC%D1%96%D0%B6-%D0%BA%D0%BE%D0%BB%D0%B5%D0%BA%D1%86%D1%96%D1%8F%D0%BC%D0%B8-%D1%82%D0%B0-%D1%81%D1%82%D1%80%D1%96%D0%BC%D0%B0%D0%BC%D0%B8)
 ###  24.  Проміжні та термінальні операції зі стрімами. Pipeline. Типи операцій (eager/lazy, stateless/stateful).
