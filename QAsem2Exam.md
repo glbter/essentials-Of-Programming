@@ -264,9 +264,9 @@ B2.super.someMethod ();
 - This is a terminal operation.
 - API Note:
    - Sum, min, max, average, and string concatenation are all special cases of reduction. Summing a stream of numbers can be expressed as:
-     ```java
+ ```java
     Integer sum = integers.reduce(0, (a, b) -> a+b);
-    ``` 
+ ``` 
     or : 
 ```java
    Integer sum = integers.reduce(0, Integer::sum);
