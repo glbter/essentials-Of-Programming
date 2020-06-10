@@ -87,27 +87,34 @@
       -  для кожного сервлета створюється окремий тред створюються обєкти реквест і респонс і проходить впровадження сервіс-методів JSP
     - 7 Видалення 
       - остання фаза об'єкт сервлета видаляється з пам'яті
-###  12.  JSP-елементи: scripting-, directive- та action- елементи.
-- scripting 
-   - для написання коду в JSP сторінці
-      - `<%=  %>` - виведення даних
-      - `<% %>`-  код
-      - `<%!  %>` -  декларація змінних на рівні класу
-- directive
-  - для встановлення параметрів JSP сторінки наприклад
-      - import 
-      - session
-      - isThreadSafe
-      - info
-      - errorPage
-      - isErrorPage
-      - contentType
-      - pageEncoding
-- action 
-  - include включення іншої JSP сторінки
-  - forward перенаправлення на іншу JSP сторінку
-  - useBean для роботи з класами в JSP
-  
+###  12.  JSP-елементи: scripting-, directive- та action- елементи.-
+- Scripting elements
+  - writes java code inside the JSP page
+  - java code generates dynamic content
+  - scriptlets:
+   `<% servlet-jspService-level-java-code %>`
+  - expressions:
+   `<%= java-rvalue-expression %>`
+  -  declarations:
+   `<%! servlet-class-level-java-code %>`
+- Directive elements
+  - tells the web container how to translate a JSP page into the
+  corresponding servlet
+  - works one time at translation phase
+     - page:
+     `<%@page xxx="..." yyy="..." zzz="..." %>`
+     - include:
+     `<%@include file="footer.jspf" %>`
+     - taglib:
+     `<%@taglib prefix="c" uri="..." %>`
+- Action elements
+  - special XML elements for generating dynamic content
+     - `<jsp:include page="header.jsp" />`
+     - `<jsp:forward page="result.jsp" />`
+     - `<jsp:useBean class="com.example.User" id="user" scope="session" />`
+     - `<jsp:setProperty name="user" property="surname" value="Smith" />`
+     - `<jsp:getProperty name="user" property="surname" />`
+
 ###  13.  JavaBean. Використання JavaBean в сервлетах та JSP. Області видимості.
 - javaBean утиліта для використання класів в jsp та їх об'єктів збереження в пам'яті
 
